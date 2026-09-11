@@ -94,7 +94,6 @@ int main(int argc, char *argv[]) {
     GSGLOBAL *gsGlobal = gsKit_init_global();
     gsKit_init_screen(gsGlobal);
 
-    // Inicialização do dmaKit atualizada para a nova versão da PS2SDK
     dmaKit_chan_init(DMA_CHANNEL_GIF);
 
     u64 color_bg = GS_SETREG_RGBA(20, 24, 33, 0);
@@ -115,7 +114,6 @@ int main(int argc, char *argv[]) {
 
         gsKit_clear(gsGlobal, color_bg);
 
-        // Renderização dos elementos usando a função correta (gsKit_prim_sprite_flat)
         for (int i = 0; i < total_games; i++) {
             u64 draw_color = (i == selected_game) ? color_selected : color_item;
             gsKit_prim_sprite_flat(gsGlobal, 80.0f, (float)(140 + (i * 45)), 560.0f, (float)(175 + (i * 45)), 1, draw_color);
